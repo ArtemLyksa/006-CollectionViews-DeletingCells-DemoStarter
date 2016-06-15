@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="O5B-Aa-xCZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="O5B-Aa-xCZ">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -66,6 +66,13 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ala-B3-hIp">
                                             <rect key="frame" x="0.0" y="-8" width="200" height="200"/>
                                         </imageView>
+                                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Unchecked" translatesAutoresizingMaskIntoConstraints="NO" id="wHe-Aq-rhJ">
+                                            <rect key="frame" x="89" y="174" width="22" height="22"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="22" id="3b8-6I-dTK"/>
+                                                <constraint firstAttribute="height" constant="22" id="z5T-lP-wNe"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
@@ -77,12 +84,15 @@
                                     <constraint firstAttribute="trailing" secondItem="ala-B3-hIp" secondAttribute="trailing" id="8eN-VL-p3k"/>
                                     <constraint firstAttribute="trailing" secondItem="AAA-1p-vcl" secondAttribute="trailing" id="Nsw-gF-erS"/>
                                     <constraint firstAttribute="bottom" secondItem="OtB-G9-FzR" secondAttribute="bottom" id="S86-Fh-2u3"/>
+                                    <constraint firstItem="wHe-Aq-rhJ" firstAttribute="centerX" secondItem="Aqe-CW-8BC" secondAttribute="centerX" id="XdM-5O-Bce"/>
                                     <constraint firstItem="ala-B3-hIp" firstAttribute="top" secondItem="Aqe-CW-8BC" secondAttribute="top" id="cRw-ym-N2A"/>
                                     <constraint firstItem="AAA-1p-vcl" firstAttribute="leading" secondItem="Aqe-CW-8BC" secondAttribute="leading" id="ece-qh-oMA"/>
                                     <constraint firstItem="ala-B3-hIp" firstAttribute="leading" secondItem="Aqe-CW-8BC" secondAttribute="leading" id="idG-BR-WLF"/>
+                                    <constraint firstAttribute="bottom" secondItem="wHe-Aq-rhJ" secondAttribute="bottom" constant="4" id="zX0-jN-JHB"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="captionLabel" destination="OtB-G9-FzR" id="kmz-Sy-6av"/>
+                                    <outlet property="checkImageView" destination="wHe-Aq-rhJ" id="U4V-jZ-Ubx"/>
                                     <outlet property="gradientView" destination="AAA-1p-vcl" id="ev4-I0-hLD"/>
                                     <outlet property="paperImageView" destination="ala-B3-hIp" id="ZbX-ZB-DFT"/>
                                 </connections>
@@ -127,6 +137,15 @@
                             <outlet property="delegate" destination="UMP-Yc-5ek" id="Phd-Tu-rsh"/>
                         </connections>
                     </collectionView>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="RqP-SN-4iZ"/>
+                        <barButtonItem systemItem="trash" id="d5n-dS-WR6">
+                            <connections>
+                                <action selector="deleteButtonTapped:" destination="UMP-Yc-5ek" id="sem-gK-xw3"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="VpS-JM-5WW"/>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" id="kyW-qM-Qw0">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="u5Y-wn-fqQ">
                             <connections>
@@ -135,6 +154,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addButton" destination="u5Y-wn-fqQ" id="kOp-ua-QrK"/>
                         <segue destination="ljD-dV-frr" kind="show" identifier="MasterToDetail" id="eY3-C5-4KO"/>
                     </connections>
                 </collectionViewController>
@@ -176,4 +196,7 @@
             <point key="canvasLocation" x="1588" y="467"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Unchecked" width="22" height="22"/>
+    </resources>
 </document>
